@@ -42,17 +42,8 @@
         <div class="home-content">
             <h3>Hello, I am</h3>
             <h1>Suraj Kumar Subudhi</h1>
-            <p>Full Stack Developer with a passion for building AI-powered web apps. Experienced in JavaScript, React, Node.js, and Python. 
-                Built projects like an AI Interview App, social media video downloader, and Resolver AI. Former DRDO intern, focused on scalable, end-to-end tech solutions.</p>
-
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <img src="images/NCAT_logo.png" alt="NCAT Logo" width="50" />
-              <div style="font-size: 12px;">
-                <strong>National Campus Aptitude Test (NCAT)</strong><br/>
-                All India Rank (AIR): <strong>178</strong> | Year: <strong>2025</strong>
-              </div>
-            </div>
-
+            <p>an AI & Data Science enthusiast specializing in machine learning, deep learning, and big data analytics. I build AI-driven solutions for computer vision, predictive modeling, and data insights.
+                Explore my work and let’s innovate together!</p>
 
             <div class="social-media">
                 <!-- <a href="#"><i class='bx bxl-facebook' ></i></a> -->
@@ -115,7 +106,7 @@
                 myself extremely proactive, dedicated, hardworking, responsible and passionate about
                 learning everything about the IT field.
                 I'm currently studying Artificial Intelligence and Data Science at C.V.Raman Global university.
-                And my current CGPA is 8.54.
+                And my current CGPA is 8.4.
                 About my backend technical knowledge, I have academic experience in developing web
                 applications using Java language with android studio and unity engine. I've also developed
                 applications such as a chatbot app using chatGPT, AI Interview Web app, etc.
@@ -368,27 +359,29 @@
             </div>
         </div>
 
-        <!--contact section-->
+        <!-- Contact section -->
         <section class="contact" id="contact">
             <h2 class="heading">Contact <span>Me!</span></h2>
 
-            <form action="#">
-
+            <form id="contact-form">
                 <div class="input-box">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email Address">
+                <input type="text" name="name" placeholder="Full Name" required />
+                <input type="email" name="email" placeholder="Email Address" required />
                 </div>
 
                 <div class="input-box">
-                    <input type="number" placeholder="Mobile Number">
-                    <input type="text" placeholder="Email Subject">
+                <input type="number" name="phone" placeholder="Mobile Number" />
+                <input type="text" name="subject" placeholder="Email Subject" />
                 </div>
 
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-                <input type="submit" value="Send Message" class="btn">
+                <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
 
+                <input type="hidden" name="time" id="time" />
+
+                <input type="submit" value="Send Message" class="btn" />
             </form>
         </section>
+
 
         
 
@@ -410,6 +403,11 @@
 
     <!-- swiper js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
 
     <!-- custom js-->
     <script src="scripts.js"></script>

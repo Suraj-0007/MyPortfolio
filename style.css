@@ -1090,35 +1090,22 @@ span{
 .header .navbar a.active {
   color: var(--main-color);
 }
-/* Card icon container aligned left */
+/* Card icon container - same style as before */
 .card .card-icon {
-  width: 70px;
-  height: 70px;
-  background: rgba(255, 255, 255, 0.05);
+  width: 4.8rem;
+  height: 4.8rem;
+  display: grid;
+  place-items: center;
   border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--main-color);
-  margin: 0 1rem 0 0; /* space between icon and text */
-  flex-shrink: 0;
+  border: 0.2rem solid var(--main-color);
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.05);
 }
 
-/* Logo image inside card icon */
+/* Image inside card icon - replaces i tag */
 .card .card-icon img {
-  width: 50px;
-  height: 50px;
+  width: 60%;
+  height: 60%;
   object-fit: contain;
   display: block;
-}
-
-/* Make the card layout horizontal (icon left, text right) */
-.card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.card h3, 
-.card p {
-  text-align: left;
 }

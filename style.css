@@ -1090,3 +1090,24 @@ span{
 .header .navbar a.active {
   color: var(--main-color);
 }
+/* Style for logo images inside the Certifications & Accomplishments cards */
+.card .card-icon img {
+  width: 60px;           /* fixed width */
+  height: 60px;          /* fixed height */
+  object-fit: contain;   /* keeps aspect ratio, no distortion */
+  display: block;
+  margin: 0 auto;        /* center horizontally */
+}
+
+/* Keep card icon container size consistent */
+.card .card-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+  border: 2px solid var(--main-color);
+}

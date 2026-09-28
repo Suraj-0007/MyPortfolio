@@ -1,115 +1,146 @@
+const body = document.body;
+const header = document.getElementById('siteHeader');
+const navbar = document.getElementById('navbar');
+const menuToggle = document.getElementById('menuToggle');
+const themeToggle = document.getElementById('themeToggle');
+const navLinks = [...document.querySelectorAll('.nav a')];
+const sections = [...document.querySelectorAll('main section[id]')];
 
+function setTheme(theme) {
+  const light = theme === 'light';
+  body.classList.toggle('light-mode', light);
+  themeToggle.innerHTML = `<i class="bx ${light ? 'bx-sun' : 'bx-moon'}"></i>`;
+  localStorage.setItem('portfolio-theme', theme);
+}
 
-/*=====menu icon navbar======*/
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+const savedTheme = localStorage.getItem('portfolio-theme');
+const systemLight = window.matchMedia?.('(prefers-color-scheme: light)').matches;
+setTheme(savedTheme || (systemLight ? 'light' : 'dark'));
 
-menuIcon.onclick = () => {
-  menuIcon.classList.toggle('bx-x');
-  navbar.classList.toggle('active');
-};
+themeToggle.addEventListener('click', () => setTheme(body.classList.contains('light-mode') ? 'dark' : 'light'));
 
-/*=====scroll section active link======*/
-let sections = document.querySelectorAll('section');
-let navlinks = document.querySelectorAll('header nav a');
+menuToggle.addEventListener('click', () => {
+  navbar.classList.toggle('open');
+  const open = navbar.classList.contains('open');
+  menuToggle.innerHTML = `<i class="bx ${open ? 'bx-x' : 'bx-menu'}"></i>`;
+  menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+});
 
-window.onscroll = () => {
-  sections.forEach(sec => {
-    let top = window.scrollY;
-    let offset = sec.offsetTop - 150;
-    let height = sec.offsetHeight;
-    let id = sec.getAttribute('id');
+navLinks.forEach(link => link.addEventListener('click', () => {
+  navbar.classList.remove('open');
+  menuToggle.innerHTML = '<i class="bx bx-menu"></i>';
+}));
 
-    if (top >= offset && top < offset + height) {
-      navlinks.forEach(links => {
-        links.classList.remove('active');
-        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-      });
+function updateActiveLink() {
+  header.classList.toggle('scrolled', window.scrollY > 30);
+  let activeId = 'home';
+  for (const section of sections) {
+    const top = section.offsetTop - 180;
+    if (window.scrollY >= top) activeId = section.id;
+  }
+  navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${activeId}`));
+}
+window.addEventListener('scroll', updateActiveLink, { passive: true });
+updateActiveLink();
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
     }
   });
+}, { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  /*=====sticky navbar======*/
-  let header = document.querySelector('.header');
-  header.classList.toggle('sticky', window.scrollY > 100);
+const tiltCard = document.querySelector('.tilt-card');
+if (tiltCard && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  tiltCard.addEventListener('mousemove', (event) => {
+    const rect = tiltCard.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - .5;
+    const y = (event.clientY - rect.top) / rect.height - .5;
+    tiltCard.style.transform = `perspective(1000px) rotateX(${y * -5}deg) rotateY(${x * 7}deg)`;
+  });
+  tiltCard.addEventListener('mouseleave', () => tiltCard.style.transform = '');
+}
 
-  /*=====remove menu icon navbar when click scroll======*/
-  menuIcon.classList.remove('bx-x');
-  navbar.classList.remove('active');
-};
+document.getElementById('year').textContent = new Date().getFullYear();
 
-/*=====swiper======*/
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 1,
-  spaceBetween: 50,
-  loop: true,
-  grabCursor: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+// EmailJS contact form.
+const EMAILJS_PUBLIC_KEY = 'lCukDs5TYm6CR08TK';
+const EMAILJS_SERVICE_ID = 'service_gnwrklb';
+const EMAILJS_TEMPLATE_ID = 'template_jsswalh';
+const PORTFOLIO_INBOX = 'surajkumarsubudhi20@gmail.com';
 
-/*=====dark light mode======*/
-let darkModeIcon = document.querySelector('#darkMode-icon');
+const form = document.getElementById('contact-form');
+const formStatus = document.getElementById('formStatus');
+let lastSubmitAt = 0;
 
-darkModeIcon.onclick = () => {
-  darkModeIcon.classList.toggle('bx-sun');
-  document.body.classList.toggle('dark-mode');
-};
+if (window.emailjs) {
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+}
 
-/*=====scroll reveal======*/
-ScrollReveal({
-  // reset: true,
-  distance: '80px',
-  duration: 2000,
-  delay: 200,
-});
+if (form) {
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
 
-ScrollReveal().reveal('.home-content, .heading', {
-  origin: 'top'
-});
+    const submitButton = form.querySelector('button[type="submit"]');
+    const buttonText = submitButton?.querySelector('span');
+    const data = new FormData(form);
+    const now = Date.now();
 
-ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', {
-  origin: 'bottom'
-});
+    if ((data.get('website') || '').trim()) return;
 
-ScrollReveal().reveal('.home-content h1, .about-img img', {
-  origin: 'left'
-});
+    if (now - lastSubmitAt < 15000) {
+      formStatus.className = 'form-status error';
+      formStatus.textContent = 'Please wait a few seconds before sending another message.';
+      return;
+    }
 
-ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', {
-  origin: 'right'
-});
+    const name = (data.get('name') || '').trim();
+    const email = (data.get('email') || '').trim();
+    const message = (data.get('message') || '').trim();
 
-/*===== EmailJS Contact Form Submission =====*/
-(function () {
-  emailjs.init("lCukDs5TYm6CR08TK");
-})();
+    if (!name || !email || !message) {
+      formStatus.className = 'form-status error';
+      formStatus.textContent = 'Please complete your name, email and message.';
+      return;
+    }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contact-form");
+    // Populate hidden EmailJS variables expected by the template.
+    form.elements.to_email.value = PORTFOLIO_INBOX;
+    form.elements.from_name.value = name;
+    form.elements.from_email.value = email;
+    form.elements.reply_to.value = email;
+    form.elements.time.value = new Date().toLocaleString();
 
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    submitButton.disabled = true;
+    if (buttonText) buttonText.textContent = 'Sending...';
+    formStatus.className = 'form-status';
+    formStatus.textContent = 'Sending your message...';
 
-      // Set timestamp for `time` field
-      const timeField = document.getElementById("time");
-      if (timeField) {
-        timeField.value = new Date().toLocaleString();
-      }
+    try {
+      if (!window.emailjs) throw new Error('EmailJS browser SDK did not load.');
 
-      emailjs.sendForm("service_gnwrklb", "template_jsswalh", this)
-        .then(() => {
-          alert("✅ Message sent to Suraj Kumar Subudhi!");
-          this.reset();
-        }, (error) => {
-          alert("❌ Failed to send: " + JSON.stringify(error));
-        });
-    });
-  }
-});
+      const response = await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        form
+      );
+
+      console.log('EmailJS success:', response.status, response.text);
+      lastSubmitAt = Date.now();
+      formStatus.className = 'form-status success';
+      formStatus.textContent = 'Message sent successfully. Thank you!';
+      form.reset();
+    } catch (error) {
+      console.error('EmailJS send failed:', error);
+      const detail = error?.text || error?.message || 'Unknown EmailJS error';
+      formStatus.className = 'form-status error';
+      formStatus.textContent = `Message could not be sent. (${detail})`;
+    } finally {
+      submitButton.disabled = false;
+      if (buttonText) buttonText.textContent = 'Send Message';
+    }
+  });
+}

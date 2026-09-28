@@ -1,384 +1,203 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | By Suraj Subudhi</title>
-
-  <!-- custom css-->
-  <link rel="stylesheet" href="style.css" />
-
-  <!--box icon-->
+  <meta name="description" content="Portfolio of Suraj Kumar Subudhi — Software Developer & AI Engineer building intelligent full-stack applications." />
+  <meta name="theme-color" content="#07111f" />
+  <title>Suraj Kumar Subudhi | Software Developer & AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-
-  <!-- swiper css -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!--header design-->
-  <header class="header">
-    <a href="#" class="logo">Portfolio.</a>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
 
-    <nav class="navbar">
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#home" aria-label="Suraj portfolio home">
+      <span class="brand-mark">S</span><span>Suraj.</span>
+    </a>
+
+    <nav class="nav" id="navbar" aria-label="Primary navigation">
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
-      <a href="#services">Skills</a>
-      <a href="#portfolio">Projects</a>
-      <a href="#certs">Certifications</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
       <a href="#experience">Experience</a>
       <a href="#recommendations">Recommendations</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <div class="bx bx-moon" id="darkMode-icon"></div>
-    <div class="bx bx-menu" id="menu-icon"></div>
+    <div class="header-actions">
+      <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle theme"><i class="bx bx-moon"></i></button>
+      <button class="icon-button menu-button" id="menuToggle" type="button" aria-label="Open navigation"><i class="bx bx-menu"></i></button>
+    </div>
   </header>
 
-  <!--home section-->
-  <section class="home" id="home">
-    <div class="home-content">
-      <h3>Hello, I am</h3>
-      <h1>Suraj Kumar Subudhi</h1>
-      <p>
-        Software Developer & AI Engineer passionate about creating intelligent web applications
-        that combine machine learning with full-stack systems. Builder of an end-to-end
-        <b>ATS platform</b> with Resume Parser, JD Matcher, Interview Scheduling Bot, and Analytics Dashboard.
-      </p>
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse-dot"></span> Software Developer & AI Engineer</div>
+        <h1>Building software that turns <span>AI into useful products.</span></h1>
+        <p class="hero-description">Software Developer & AI Engineer passionate about creating intelligent web applications that combine machine learning with full-stack systems. Builder of an end-to-end <strong>ATS platform</strong> with Resume Parser, JD Matcher, Interview Scheduling Bot, and Analytics Dashboard.</p>
 
-      <div class="social-media">
-        <a href="https://github.com/Suraj-0007" target="_blank" rel="noopener noreferrer"><i class="bx bxl-github"></i></a>
-        <a href="https://www.instagram.com/_kumar_suraj07?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bx bxl-instagram-alt"></i></a>
-        <a href="https://www.linkedin.com/in/suraj-kumar-subudhi-23115a258/" target="_blank" rel="noopener noreferrer"><i class="bx bxl-linkedin"></i></a>
-      </div>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore Projects <i class="bx bx-right-arrow-alt"></i></a>
+          <a class="button secondary" href="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/resume/Suraj_Kumar_Subudhi_Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume <i class="bx bx-download"></i></a>
+        </div>
 
-      <a href="resume/Suraj_Kumar_Subudhi_Resume.pdf" class="btn" target="_blank" rel="noopener noreferrer">Download CV</a>
-    </div>
-
-    <div class="profession-container">
-      <div class="profession-box">
-        <div class="profession" style="--i:0;"><h3>Software Developer</h3></div>
-        <div class="profession" style="--i:1;"><h3>Machine Learning</h3><h3>Engineer</h3></div>
-        <div class="profession" style="--i:2;"><h3>Coder</h3></div>
-        <div class="profession" style="--i:3;"><h3>Data Analyst</h3></div>
-        <div class="circle"></div>
-      </div>
-      <div class="overlay"></div>
-    </div>
-
-    <div class="home-img">
-      <img src="images/webDeveloper.png" alt="">
-    </div>
-  </section>
-
-  <!--about section-->
-  <section class="about" id="about">
-    <div class="about-img">
-      <img src="images/Myphoto.png" alt="">
-    </div>
-
-    <div class="about-content">
-      <h2 class="heading">About <span>Suraj</span></h2>
-      <h3>Who I am</h3>
-      <p>
-        I am a <b>Software Developer & AI Engineer</b> with a B.Tech in Artificial Intelligence & Data Science from
-        C.V. Raman Global University. I design and build intelligent systems that merge
-        <b>full-stack web development</b> and <b>machine learning</b> for real-world impact.
-        <br><br>
-        My personal projects include an advanced <b>ATS platform</b> with Resume Parsing, JD Matching,
-        Interview Automation, and Analytics built using Python, FastAPI, spaCy, Transformers, Azure ML,
-        and React/Next.js. Previously at <b>NSTL–DRDO</b>, I created a drag-force prediction model (94% accuracy, +17% improvement).
-        <br><br>
-        I am also <b>Microsoft Certified: Azure Data Scientist (DP-100)</b> and achieved
-        <b>NCAT AIR 178 (Top 0.5%)</b>. My passion lies in solving practical problems with AI/ML
-        and delivering optimized cloud-based products.
-      </p>
-      <a href="https://www.linkedin.com/in/suraj-kumar-subudhi-23115a258/" class="btn" target="_blank" rel="noopener noreferrer">More on LinkedIn</a>
-    </div>
-  </section>
-
-  <!--skills-->
-  <section class="services" id="services">
-    <h2 class="heading"><span>Skills</span></h2>
-
-    <div class="services-container">
-      <div class="services-box"><i class="bx bxl-python"></i><h3>Python</h3></div>
-      <div class="services-box"><i class="bx bxl-java"></i><h3>Java</h3></div>
-      <div class="services-box"><i class="bx bx-brain"></i><h3>Machine Learning</h3></div>
-      <div class="services-box"><i class="bx bxs-data"></i><h3>MySQL</h3></div>
-      <div class="services-box"><i class="bx bxl-react"></i><h3>React.js</h3></div>
-      <div class="services-box"><i class="bx bxl-nodejs"></i><h3>Node.js</h3></div>
-      <div class="services-box"><i class="bx bxl-html5"></i><h3>HTML</h3></div>
-      <div class="services-box"><i class="bx bxl-css3"></i><h3>CSS</h3></div>
-      <div class="services-box"><i class="bx bxl-javascript"></i><h3>JavaScript</h3></div>
-      <div class="services-box"><i class="bx bx-desktop"></i><h3>Operating System</h3></div>
-      <div class="services-box"><i class="bx bxl-github"></i><h3>GitHub</h3></div>
-      <div class="services-box"><i class="bx bx-code"></i><h3>Algorithms</h3></div>
-      <div class="services-box"><i class="bx bx-bulb"></i><h3>Problem Solving</h3></div>
-      <div class="services-box"><i class="bx bx-group"></i><h3>Team Work</h3></div>
-      <div class="services-box"><i class="bx bx-cloud"></i><h3>Microsoft Azure</h3></div>
-    </div>
-  </section>
-
-  <!--portfolio-->
-  <section class="portfolio" id="portfolio">
-    <h2 class="heading">Suraj's Latest <span>Projects</span></h2>
-
-    <div class="portfolio-container">
-      <div class="portfolio-box">
-        <img src="images/AI_Solutions.png" alt="">
-        <div class="portfolio-layer">
-          <h4>ResolverAI</h4>
-          <p>React.js, Vite, Tailwind CSS, HTML, CSS, Gemini AI, JavaScript, Vercel</p>
-          <p>AI-powered chat interface for quick, intelligent assistance.</p>
-          <a href="https://resolver-ai.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="bx bx-link-external"></i></a>
+        <div class="social-row" aria-label="Social links">
+          <a href="https://github.com/Suraj-0007" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+          <a href="https://www.instagram.com/_kumar_suraj07" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bx bxl-instagram-alt"></i></a>
+          <a href="https://www.linkedin.com/in/suraj-kumar-subudhi-23115a258/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
         </div>
       </div>
 
-      <div class="portfolio-box">
-        <img src="images/AnySocialDL.png" alt="">
-        <div class="portfolio-layer">
-          <h4>Any Video Downloader</h4>
-          <p>React.js, Node.js, Express, MongoDB, Vercel, Render</p>
-          <p>Paste any link → get downloadable links with backend logging and validation.</p>
-          <a href="https://social-media-video-downloader-two.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="images/AiInterviewWebApp.png" alt="">
-        <div class="portfolio-layer">
-          <h4>AI Interview Web App</h4>
-          <p>Next.js, ShadCN, Clerk, Gemini, Drizzle</p>
-          <p>Generates role-based questions, captures voice answers, and gives real-time feedback.</p>
-          <a href="https://ai-interview-app-gamma.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="images/Netflix.png" alt="">
-        <div class="portfolio-layer">
-          <h4>Netflix Homepage Clone</h4>
-          <p>HTML, CSS with animations and hover effects.</p>
-          <a href="https://github.com/Suraj-0007/Bharat-internship/tree/main/Netflix-Homepage" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="images/temperatureConv.png" alt="">
-        <div class="portfolio-layer">
-          <h4>Temperature Converter</h4>
-          <p>HTML, CSS, JavaScript — Convert between Celsius, Fahrenheit, Kelvin.</p>
-          <a href="https://github.com/Suraj-0007/Bharat-internship/tree/main/Temperature-Converter" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="images/ATM.png" alt="">
-        <div class="portfolio-layer">
-          <h4>ATM Interface</h4>
-          <p>Java — withdrawal, deposit, balance inquiry, PIN authentication.</p>
-          <a href="https://github.com/Suraj-0007/OIBSIP/tree/main/ATM-Interface" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="images/onlinequizsystem.png" alt="">
-        <div class="portfolio-layer">
-          <h4>Online Quiz System</h4>
-          <p>Java Swing GUI, OOP, event-driven design.</p>
-          <a href="https://github.com/Suraj-0007/OIBSIP/blob/main/Online-Examination/OnlineExam.java" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="images/railway.png" alt="">
-        <div class="portfolio-layer">
-          <h4>Railway Ticket Booking</h4>
-          <p>Java console app — booking, cancel, RAC, WL.</p>
-          <a href="https://github.com/Suraj-0007/OIBSIP/blob/main/Online-Reservation-System/TicketBookingSystem.java" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="images/numberGuess.png" alt="">
-        <div class="portfolio-layer">
-          <h4>Number Guessing Game</h4>
-          <p>Java — interactive scoring game with 10 tries per round.</p>
-          <a href="https://github.com/Suraj-0007/OIBSIP/blob/main/Number-Guessing-Game/NumberGuessingGame.java" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="portfolio-box">
-        <img src="images/face_recognition.png" alt="">
-        <div class="portfolio-layer">
-          <h4>Criminal Face Identification</h4>
-          <p>Java Swing/AWT — GUI-based face recognition application.</p>
-          <a href="https://github.com/Suraj-0007/Projects/tree/main/Face%20Detection" target="_blank"><i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--certifications-->
-  <section class="cards cards--altbg" id="certs">
-    <h2 class="heading">Certifications <span>&amp;</span> Accomplishments</h2>
-    <div class="cards-grid">
-      <article class="card">
-        <div class="card-icon"><img src="images/azure_dp100.png" alt=""></div>
-        <h3>Microsoft Certified: Azure Data Scientist Associate</h3>
-        <p><b>Certification: DP-100</b></p>
-        <p>Azure ML: data preparation, model training, deployment, and monitoring.</p>
-      </article>
-
-      <article class="card">
-        <div class="card-icon"><img src="images/NCAT_logo.png" alt=""></div>
-        <h3>NCAT — Naukri Campus Aptitude Test</h3>
-        <p><b>All India Rank: 145</b></p>
-        <p>Top performer across quantitative, logical, and verbal sections.</p>
-      </article>
-
-      <article class="card">
-        <div class="card-icon"><img src="images/az900.png" alt=""></div>
-        <h3>Microsoft Azure Fundamentals</h3>
-        <p><b>Certification: AZ-900</b></p>
-        <p>Cloud concepts, core services, pricing, security, and lifecycle.</p>
-      </article>
-    </div>
-  </section>
-
-  <!--experience-->
-  <div class="testimonial-container" id="experience">
-    <h2 class="heading"><span>Experience + Internship</span></h2>
-
-    <div class="testimonial-wrapper">
-      <div class="testimonial-box mySwiper">
-        <div class="testimonial-content swiper-wrapper">
-
-          <div class="testimonial-slide swiper-slide">
-            <img src="images/NSTL.png" alt="">
-            <h3>Machine Learning Intern</h3>
-            <p><strong>Organization:</strong> NSTL–DRDO</p>
-            <p>Forecasted drag force on underwater bodies with 94% accuracy using Python and ML algorithms.</p>
+      <div class="hero-visual reveal">
+        <div class="profile-card tilt-card">
+          <div class="profile-grid"></div>
+          <div class="availability"><span></span> Open to building impactful products</div>
+          <div class="portrait-wrap">
+            <img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/webDeveloper.png" alt="Developer illustration" />
           </div>
-
-          <div class="testimonial-slide swiper-slide">
-            <img src="images/BHARATINTERN.jpeg" alt="">
-            <h3>Web Developer Intern</h3>
-            <p><strong>Organization:</strong> Bharat Intern</p>
-            <p>Built responsive front-end projects using HTML, CSS, and JavaScript.</p>
-          </div>
-
-          <div class="testimonial-slide swiper-slide">
-            <img src="images/OasisInfobyte.jpeg" alt="">
-            <h3>Java Developer Intern</h3>
-            <p><strong>Organization:</strong> Oasis Infobyte</p>
-            <p>Developed Java OOP applications like ATM Simulator and Reservation System.</p>
-          </div>
+          <div class="floating-chip chip-one"><i class="bx bxl-python"></i> Python</div>
+          <div class="floating-chip chip-two"><i class="bx bx-brain"></i> Machine Learning</div>
+          <div class="floating-chip chip-three"><i class="bx bxl-react"></i> React</div>
         </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </div>
-
-  <!--recommendations-->
-  <section class="cards" id="recommendations">
-    <h2 class="heading">LinkedIn <span>Recommendations</span></h2>
-    <div class="cards-grid">
-
-      <article class="card card--row">
-        <div class="avatar">
-          <img src="https://media.licdn.com/dms/image/v2/D4D03AQH7RddrJmOm1w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731122426011?e=1758153600&v=beta&t=mn2h98YISshFItSLPpLvcTAA7KVtgZjbqAiivJn8j3U"
-            alt="Dr. Debendra Muduli" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="stat-grid">
+          <div class="mini-stat"><span>94%</span><p>ML model accuracy at NSTL–DRDO</p></div>
+          <div class="mini-stat"><span>178</span><p>NCAT All India Rank</p></div>
+          <div class="mini-stat"><span>DP-100</span><p>Azure Data Scientist</p></div>
         </div>
-        <div class="card-body">
-          <h3>Dr. Debendra Muduli</h3>
-          <p class="muted">Associate Professor, CGU | Major Project Mentor</p>
-          <p>
-            I had the opportunity to mentor Suraj during his major project, where he and his team
-            developed two machine learning models to predict whether breast cancer is benign or malignant.
-            Suraj demonstrated excellent analytical skills, Python/ML expertise, and deep commitment.
-          </p>
-        </div>
-      </article>
-
-     <article class="card card--row">
-      <div class="avatar">
-        <img
-          src="https://media.licdn.com/dms/image/v2/D5603AQGFN8BW3U4olw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1695254587632?e=1758153600&v=beta&t=vKVm7peZY0l8RUo63c7RSah6RXv_ETGwoOpjm6QzCX0"
-          alt="Libin Abraham"
-          loading="lazy"
-          referrerpolicy="no-referrer"
-        />
       </div>
-      <div class="card-body">
-        <h3>Libin Abraham</h3>
-        <p class="muted">CFD Engineer @ NSTL-DRDO | Internship Mentor</p>
-        <p>
-          I had the pleasure of mentoring Suraj during his internship at NSTL DRDO, where he, along with his teammate, worked on building a machine learning model to forecast drag force on naval bodies. Suraj demonstrated strong technical skills in Python and ML, and showed great dedication to improving model accuracy and performance.
-          <br /><br />
-          His ability to grasp complex concepts quickly and implement them effectively stood out. He was proactive, detail-oriented, and collaborated well throughout the project. I’m confident he’ll continue to excel in the field of AI and Data Science.
-        </p>
-      </div>
-    </article>
-    
-    </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to About"><span>Scroll</span><i class="bx bx-down-arrow-alt"></i></a>
     </section>
-    
-    <!-- Contact section -->
-    <section class="contact" id="contact">
-      <h2 class="heading">Contact <span>Me!</span></h2>
-    
-      <form id="contact-form">
-        <div class="input-box">
-          <input type="text" name="name" placeholder="Full Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
+
+    <section class="section about" id="about">
+      <div class="section-heading reveal">
+        <span class="section-kicker">01 / About</span>
+        <h2>Engineering with <span>purpose.</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <div class="image-frame">
+            <img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/Myphoto.png" alt="Suraj Kumar Subudhi" />
+          </div>
+          <div class="edu-card"><i class="bx bxs-graduation"></i><div><strong>B.Tech — AI & Data Science</strong><span>C.V. Raman Global University · 2021–2025</span></div></div>
         </div>
-    
-        <div class="input-box">
-          <input type="number" name="phone" placeholder="Mobile Number" />
-          <input type="text" name="subject" placeholder="Email Subject" />
+        <div class="about-copy reveal">
+          <h3>Who I am</h3>
+          <p>I am a <strong>Software Developer & AI Engineer</strong> with a B.Tech in Artificial Intelligence & Data Science from C.V. Raman Global University. I design and build intelligent systems that merge <strong>full-stack web development</strong> and <strong>machine learning</strong> for real-world impact.</p>
+          <p>My personal projects include an advanced <strong>ATS platform</strong> with Resume Parsing, JD Matching, Interview Automation, and Analytics built using Python, FastAPI, spaCy, Transformers, Azure ML, and React/Next.js. Previously at <strong>NSTL–DRDO</strong>, I created a drag-force prediction model with 94% accuracy and a 17% improvement.</p>
+          <p>I am also <strong>Microsoft Certified: Azure Data Scientist (DP-100)</strong> and achieved <strong>NCAT AIR 178 (Top 0.5%)</strong>. My focus is solving practical problems with AI/ML and delivering optimized cloud-based products.</p>
+          <a class="text-link" href="https://www.linkedin.com/in/suraj-kumar-subudhi-23115a258/" target="_blank" rel="noopener noreferrer">More on LinkedIn <i class="bx bx-link-external"></i></a>
         </div>
-    
-        <textarea
-          name="message"
-          cols="30"
-          rows="10"
-          placeholder="Your Message"
-          required
-        ></textarea>
-    
-        <input type="hidden" name="time" id="time" />
-    
-        <input type="submit" value="Send Message" class="btn" />
-      </form>
+      </div>
     </section>
-    
-    <!--footer section-->
-    <footer class="footer">
-      <div class="footer-text">
-        <p>Copyright &copy; 2025 by Suraj Kumar Subudhi | All right reserved!</p>
+
+    <section class="section skills" id="skills">
+      <div class="section-heading reveal"><span class="section-kicker">02 / Skills</span><h2>Tools I use to <span>build.</span></h2></div>
+      <div class="skills-grid reveal">
+        <div class="skill-card"><i class="bx bxl-python"></i><span>Python</span></div>
+        <div class="skill-card"><i class="bx bxl-java"></i><span>Java</span></div>
+        <div class="skill-card"><i class="bx bx-brain"></i><span>Machine Learning</span></div>
+        <div class="skill-card"><i class="bx bxs-data"></i><span>MySQL</span></div>
+        <div class="skill-card"><i class="bx bxl-react"></i><span>React.js</span></div>
+        <div class="skill-card"><i class="bx bxl-nodejs"></i><span>Node.js</span></div>
+        <div class="skill-card"><i class="bx bxl-html5"></i><span>HTML</span></div>
+        <div class="skill-card"><i class="bx bxl-css3"></i><span>CSS</span></div>
+        <div class="skill-card"><i class="bx bxl-javascript"></i><span>JavaScript</span></div>
+        <div class="skill-card"><i class="bx bx-desktop"></i><span>Operating System</span></div>
+        <div class="skill-card"><i class="bx bxl-github"></i><span>GitHub</span></div>
+        <div class="skill-card"><i class="bx bx-code-alt"></i><span>Algorithms</span></div>
+        <div class="skill-card"><i class="bx bx-bulb"></i><span>Problem Solving</span></div>
+        <div class="skill-card"><i class="bx bx-group"></i><span>Team Work</span></div>
+        <div class="skill-card"><i class="bx bx-cloud"></i><span>Microsoft Azure</span></div>
       </div>
-    
-      <div class="footer-iconTop">
-        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="section-heading reveal"><span class="section-kicker">03 / Projects</span><h2>Selected <span>work.</span></h2></div>
+      <div class="project-grid">
+        <article class="project-card feature reveal">
+          <div class="project-image"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/AI_Solutions.png" alt="ResolverAI project" /></div>
+          <div class="project-body"><div class="project-index">01</div><h3>ResolverAI</h3><p>AI-powered chat interface for quick, intelligent assistance.</p><div class="tags"><span>React.js</span><span>Vite</span><span>Tailwind</span><span>Gemini AI</span><span>Vercel</span></div><a href="https://resolver-ai.vercel.app/" target="_blank" rel="noopener noreferrer">Live project <i class="bx bx-link-external"></i></a></div>
+        </article>
+        <article class="project-card feature reverse reveal">
+          <div class="project-image"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/AnySocialDL.png" alt="Any Video Downloader project" /></div>
+          <div class="project-body"><div class="project-index">02</div><h3>Any Video Downloader</h3><p>Paste any link → get downloadable links with backend logging and validation.</p><div class="tags"><span>React.js</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Render</span></div><a href="https://social-media-video-downloader-two.vercel.app/" target="_blank" rel="noopener noreferrer">Live project <i class="bx bx-link-external"></i></a></div>
+        </article>
+        <article class="project-card feature reveal">
+          <div class="project-image"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/AiInterviewWebApp.png" alt="AI Interview Web App project" /></div>
+          <div class="project-body"><div class="project-index">03</div><h3>AI Interview Web App</h3><p>Generates role-based questions, captures voice answers, and gives real-time feedback.</p><div class="tags"><span>Next.js</span><span>ShadCN</span><span>Clerk</span><span>Gemini</span><span>Drizzle</span></div><a href="https://ai-interview-app-gamma.vercel.app/" target="_blank" rel="noopener noreferrer">Live project <i class="bx bx-link-external"></i></a></div>
+        </article>
       </div>
-    </footer>
-    
-    <!-- scroll reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    
-    <!-- swiper js -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    
-    <!-- custom js-->
-    <script src="scripts.js"></script>
+
+      <div class="compact-projects reveal">
+        <a class="compact-card" href="https://github.com/Suraj-0007/Bharat-internship/tree/main/Netflix-Homepage" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/Netflix.png" alt="Netflix clone" /><div><h3>Netflix Homepage Clone</h3><p>HTML, CSS · Animations & hover effects</p></div><i class="bx bx-up-arrow-alt"></i></a>
+        <a class="compact-card" href="https://github.com/Suraj-0007/Bharat-internship/tree/main/Temperature-Converter" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/temperatureConv.png" alt="Temperature converter" /><div><h3>Temperature Converter</h3><p>HTML, CSS, JavaScript</p></div><i class="bx bx-up-arrow-alt"></i></a>
+        <a class="compact-card" href="https://github.com/Suraj-0007/OIBSIP/tree/main/ATM-Interface" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/ATM.png" alt="ATM Interface" /><div><h3>ATM Interface</h3><p>Java · PIN, withdrawal, deposit, balance</p></div><i class="bx bx-up-arrow-alt"></i></a>
+        <a class="compact-card" href="https://github.com/Suraj-0007/OIBSIP/blob/main/Online-Examination/OnlineExam.java" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/onlinequizsystem.png" alt="Online Quiz System" /><div><h3>Online Quiz System</h3><p>Java Swing · OOP · Event-driven UI</p></div><i class="bx bx-up-arrow-alt"></i></a>
+        <a class="compact-card" href="https://github.com/Suraj-0007/OIBSIP/blob/main/Online-Reservation-System/TicketBookingSystem.java" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/railway.png" alt="Railway Ticket Booking" /><div><h3>Railway Ticket Booking</h3><p>Java · Booking, cancellation, RAC, WL</p></div><i class="bx bx-up-arrow-alt"></i></a>
+        <a class="compact-card" href="https://github.com/Suraj-0007/OIBSIP/blob/main/Number-Guessing-Game/NumberGuessingGame.java" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/numberGuess.png" alt="Number Guessing Game" /><div><h3>Number Guessing Game</h3><p>Java · Interactive scoring game</p></div><i class="bx bx-up-arrow-alt"></i></a>
+        <a class="compact-card" href="https://github.com/Suraj-0007/Projects/tree/main/Face%20Detection" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/face_recognition.png" alt="Criminal Face Identification" /><div><h3>Criminal Face Identification</h3><p>Java Swing/AWT · Face recognition GUI</p></div><i class="bx bx-up-arrow-alt"></i></a>
+      </div>
+    </section>
+
+    <section class="section certification-section" id="certifications">
+      <div class="section-heading reveal"><span class="section-kicker">04 / Credentials</span><h2>Certifications & <span>accomplishments.</span></h2></div>
+      <div class="credential-grid">
+        <article class="credential-card reveal"><div class="credential-icon"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/azure_dp100.png" alt="DP-100" /></div><div><span class="credential-label">Microsoft</span><h3>Azure Data Scientist Associate</h3><p><strong>DP-100</strong> · Azure ML data preparation, model training, deployment, and monitoring.</p></div></article>
+        <article class="credential-card reveal"><div class="credential-icon"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/NCAT_logo.png" alt="NCAT" /></div><div><span class="credential-label">Naukri Campus</span><h3>NCAT — Aptitude Test</h3><p><strong>All India Rank: 178 · Top 0.5%</strong> across quantitative, logical, and verbal sections.</p></div></article>
+        <article class="credential-card reveal"><div class="credential-icon"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/az900.png" alt="AZ-900" /></div><div><span class="credential-label">Microsoft</span><h3>Azure Fundamentals</h3><p><strong>AZ-900</strong> · Cloud concepts, core services, pricing, security, and lifecycle.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section experience" id="experience">
+      <div class="section-heading reveal"><span class="section-kicker">05 / Experience</span><h2>Learning by <span>doing.</span></h2></div>
+      <div class="timeline">
+        <article class="timeline-item reveal"><div class="timeline-marker"></div><div class="timeline-card"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/NSTL.png" alt="NSTL DRDO" /><div><span class="timeline-type">Machine Learning Internship</span><h3>NSTL–DRDO</h3><p>Forecasted drag force on underwater bodies with 94% accuracy using Python and machine-learning algorithms.</p></div></div></article>
+        <article class="timeline-item reveal"><div class="timeline-marker"></div><div class="timeline-card"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/BHARATINTERN.jpeg" alt="Bharat Intern" /><div><span class="timeline-type">Web Development Internship</span><h3>Bharat Intern</h3><p>Built responsive front-end projects using HTML, CSS, and JavaScript.</p></div></div></article>
+        <article class="timeline-item reveal"><div class="timeline-marker"></div><div class="timeline-card"><img src="https://raw.githubusercontent.com/Suraj-0007/MyPortfolio/main/images/OasisInfobyte.jpeg" alt="Oasis Infobyte" /><div><span class="timeline-type">Java Development Internship</span><h3>Oasis Infobyte</h3><p>Developed Java OOP applications including an ATM Simulator and Reservation System.</p></div></div></article>
+      </div>
+    </section>
+
+    <section class="section recommendations" id="recommendations">
+      <div class="section-heading reveal"><span class="section-kicker">06 / Recommendations</span><h2>What mentors <span>say.</span></h2></div>
+      <div class="recommendation-grid">
+        <article class="quote-card reveal"><i class="bx bxs-quote-alt-left quote-icon"></i><p>I had the opportunity to mentor Suraj during his major project, where he and his team developed two machine learning models to predict whether breast cancer is benign or malignant. Suraj demonstrated excellent analytical skills, Python/ML expertise, and deep commitment.</p><div class="quote-author"><div class="avatar-fallback">DM</div><div><strong>Dr. Debendra Muduli</strong><span>Associate Professor, CGU · Major Project Mentor</span></div></div></article>
+        <article class="quote-card reveal"><i class="bx bxs-quote-alt-left quote-icon"></i><p>I had the pleasure of mentoring Suraj during his internship at NSTL DRDO, where he, along with his teammate, worked on building a machine learning model to forecast drag force on naval bodies. Suraj demonstrated strong technical skills in Python and ML, showed great dedication to improving model accuracy, and collaborated well throughout the project.</p><div class="quote-author"><div class="avatar-fallback">LA</div><div><strong>Libin Abraham</strong><span>CFD Engineer @ NSTL-DRDO · Internship Mentor</span></div></div></article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact-shell reveal">
+        <div class="contact-copy"><span class="section-kicker">07 / Contact</span><h2>Have an idea? <span>Let’s build it.</span></h2><p>Send a message directly from the portfolio. I’ll receive the details through the existing EmailJS setup.</p><div class="contact-points"><span><i class="bx bx-code-block"></i> Software & full-stack products</span><span><i class="bx bx-brain"></i> AI / ML solutions</span><span><i class="bx bx-cloud"></i> Cloud-first development</span></div></div>
+        <form id="contact-form" class="contact-form">
+          <input type="hidden" name="to_email" value="surajkumarsubudhi20@gmail.com" />
+          <input type="hidden" name="from_name" value="" />
+          <input type="hidden" name="from_email" value="" />
+          <input type="hidden" name="reply_to" value="" />
+          <input type="hidden" name="time" value="" />
+          <div class="form-row"><label>Full name<input type="text" name="name" placeholder="Your name" required /></label><label>Email<input type="email" name="email" placeholder="you@example.com" required /></label></div>
+          <div class="form-row"><label>Mobile number<input type="tel" name="phone" placeholder="Optional" /></label><label>Subject<input type="text" name="subject" placeholder="What is this about?" /></label></div>
+          <label>Message<textarea name="message" rows="6" placeholder="Tell me about your idea..." required></textarea></label>
+          <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button type="submit" class="button primary submit-button"><span>Send Message</span><i class="bx bx-send"></i></button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand" href="#home"><span class="brand-mark">S</span><span>Suraj.</span></a><p>© <span id="year"></span> Suraj Kumar Subudhi. All rights reserved.</p><a class="back-top" href="#home" aria-label="Back to top"><i class="bx bx-up-arrow-alt"></i></a></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
